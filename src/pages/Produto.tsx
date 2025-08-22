@@ -46,9 +46,10 @@ export function Produto() {
               {produto.map((produto, index) => (
                 <motion.div
                   key={produto.id}
-                  className="p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition flex flex-col items-center"
+                  className="p-6 rounded-2xl shadow-lg flex flex-col items-center backdrop-blur-xl bg-white/30 border border-white/40 transition-all duration-300 hover:scale-105 hover:bg-white/50 hover:shadow-2xl"
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
+                  whileHover={{ scale: 1.07, boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)" }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                 >
                   <img
@@ -65,6 +66,11 @@ export function Produto() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="px-4 py-2 bg-blue-600 text-white font-medium rounded-xl shadow hover:bg-blue-700 transition"
+                    onClick={() => {
+                      const phone = '5532985078080'; // Substitua pelo número do WhatsApp desejado
+                      const msg = `Olá! Tenho interesse no ${produto.nome} (${produto.preco}).`;
+                      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+                    }}
                   >
                     Comprar
                   </motion.button>
