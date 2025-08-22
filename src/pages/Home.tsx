@@ -1,5 +1,3 @@
-// src/pages/Home.tsx
-// src/pages/Home.tsx
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -12,13 +10,13 @@ const produtos = [
   },
   {
     id: 2,
-    nome: "iPhone 15 Pro",
+    nome: "Iphone 15 Pro",
     preco: "R$ 6.499",
     img: "./iphone_15_pro.png",
   },
   {
     id: 3,
-    nome: "iPhone 14 Pro",
+    nome: "Iphone 14 Pro",
     preco: "R$ 4.999",
     img: "./iphone_14_pro.png",
   },
@@ -27,22 +25,19 @@ const produtos = [
 
 export function Home() {
   return (
-    <main className="flex-1 flex flex-col items-center justify-center p-6">
-      <motion.h1
-        className="text-4xl md:text-5xl font-bold text-blue-600 mb-8 text-center"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+    <main className="flex-1 flex flex-col">
+      {/* Hero Section */}
+      <section 
+        className="relative h-screen flex items-center justify-center bg-cover bg-center bg-[url('/jn.jpg')]"
       >
-        Bem-vindo à  📱
-      </motion.h1>
+        {/* Overlay escuro */}
+        <div className="absolute inset-0 bg-black/60 md:bg-black/40"></div>
 
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl">
-        {produtos.map((produto, index) => (
-          <motion.div
-            key={produto.id}
-            className="p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition flex flex-col items-center"
-            initial={{ opacity: 0, y: 40 }}
+        {/* Conteúdo */}
+        <div className="relative z-10 text-center px-6">
+          <motion.h1
+            className="text-4xl md:text-6xl font-bold text-white"
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.6,
@@ -50,6 +45,8 @@ export function Home() {
             }}
           >
             <Link to={`/produtos/${produto.id}`}>
+              <h2 className="text-xl font-semibold text-gray-800">{produto.nome}</h2>
+                <p className="text-gray-600">{produto.preco}</p>
             </Link>
             <img
               src={produto.img}
@@ -74,6 +71,3 @@ export function Home() {
     </main>
   );
 }
-
-
-
