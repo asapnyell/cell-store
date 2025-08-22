@@ -12,13 +12,13 @@ const produtos = [
   },
   {
     id: 2,
-    nome: "Iphone 15 Pro",
+    nome: "iPhone 15 Pro",
     preco: "R$ 6.499",
     img: "./iphone_15_pro.png",
   },
   {
     id: 3,
-    nome: "Iphone 14 Pro",
+    nome: "iPhone 14 Pro",
     preco: "R$ 4.999",
     img: "./iphone_14_pro.png",
   },
@@ -50,8 +50,6 @@ export function Home() {
             }}
           >
             <Link to={`/produtos/${produto.id}`}>
-              <h2 className="text-xl font-semibold text-gray-800">{produto.nome}</h2>
-                <p className="text-gray-600">{produto.preco}</p>
             </Link>
             <img
               src={produto.img}
